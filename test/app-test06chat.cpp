@@ -35,10 +35,6 @@ int main(int argc, char *argv[])
       res.sendFile("./public/ws-chat.html");
       return true;
    });
-   app.get("/:file", [](auto req, auto res) {
-      res.sendFile("./public/"+req.params("file"));
-      return true;
-   });
 
    MyHandler wsh;
 

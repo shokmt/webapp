@@ -6,13 +6,12 @@
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script>
 $(function() {
-   var data = {};
-   ws = new WebSocket("ws://"+location.host+"/chat");
+   var ws = new WebSocket("ws://"+location.host+"/chat");
    ws.onopen = function() {
       $("#output").append('connected<br/>');
    };
    ws.onmessage = function(e) {
-      $("#output").append(e.data+'<br/>');
+      $("#output").prepend(e.data+'<br/>');
    };
    $('#send').click(function(){
       ws.send($('#message').val());
